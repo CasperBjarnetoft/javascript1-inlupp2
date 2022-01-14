@@ -109,7 +109,6 @@ form.addEventListener('submit', e => {
                     todo.id++;
                     numbers++;
                 })
-
             })
     }    
 })
