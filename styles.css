@@ -6,10 +6,14 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f7f5f5e5;
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    background-size: cover;
+
 }
 
 .container {
+    margin-top: 3rem;
     width: 100%;
     justify-content: center;
     flex-direction: column;
@@ -21,8 +25,9 @@ body {
 }
 
 .btn {
-    padding: .9em 1.6em;
-    border-radius: 0 1rem 1rem 0;
+    margin-top: 1rem;
+    padding: 1.6em 4em;
+    border-radius: .5rem;
     border: 0;
     outline: none;
     text-transform: uppercase;
@@ -31,17 +36,20 @@ body {
 }
 
 .btn-primary {
-    background-color: #000000a6;
+    background-color: #7480eb;
+    background-image: linear-gradient(90deg, #2970c2 0%, #354981 100%);
     color: white;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #0000008a;
+    background-color: #7480eb;
+    background-image: linear-gradient(90deg, #276bb8 0%, #33467a 100%);
 }
 
 .btn-primary:active {
-    background-color: #020101a6;
+    background-color: #7480eb;
+    background-image: linear-gradient(90deg, #2b73c5 0%, #3d538f 100%);
 }
 
 .btndelete {
@@ -50,31 +58,47 @@ body {
     color: white;
     text-align: center;
     border-radius: 5px;
-    width: 1.9rem;
+    height: 3rem;
+    width: 3rem;
     padding: 0.5rem;
     text-decoration: none;
     cursor: pointer;
-    display: none;
+}
+
+.btndelete:hover,
+.btndelete:focus {
+    background-color: #ff0000ce;
+}
+
+
+.btndelete:active {
+    background-color: #ff00009f;
 }
 
 #Form {
-    background-color: white;
     height: 15vh;
     width: 50%;
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px #0000007e;
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 1rem;
     flex-direction: column;
     align-items: center;
+    color: rgb(255, 255, 255);
 }
 
 #todon {
     margin-top: 3rem;
     border-radius: 1rem;
+    /* border: 1px solid black; */
     width: 80%;
     align-items: center;
     justify-content: center;
     background-color: white;
+}
+
+.inputs {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .is-done {
@@ -91,10 +115,13 @@ body {
     text-align: center;
 }
 
-.input-group {
+.input-groups {
     align-items: center;
     justify-content: center;
-    position: relative;
+}
+
+.invalid-feedback {
+    display: none;
 }
 
 .input-label {
@@ -104,47 +131,14 @@ body {
 }
 
 .form-control {
-    padding: .6rem 0.3rem;
+    padding: 1.2rem 0.4rem;
+    margin-right: 1.5rem;
     width: 300px;
-    border-radius: 1rem 0 0 1rem;
-}
-
-.is-invalid .form-control {
-    border: 1px solid #db1010;;
-    outline: 1px solid #db1010;;
-}
-
-.is-valid .form-control {
-    border: 1px solid #14ac06;
-    outline: 1px solid #14ac06;
-}
-
-.fa-times-circle,
-.fa-check-circle {
-    position: absolute;
-    right: 7rem;
-    top: .7rem;
-    font-size: 1.1rem;   
-    display: none;
-}
-
-.fa-times-circle {
-    color: #db1010;
-}
-
-.fa-check-circle {
-    color: #14ac06;
-}
-
-.is-invalid .fa-times-circle {
-    display: block;
-}
-  
-.is-valid .fa-check-circle {
-    display: block;
+    border-radius: 1rem;
 }
 
 #output {
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,7 +149,7 @@ body {
     padding: 1rem;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #output-text {
@@ -164,14 +158,19 @@ body {
     font-weight: 500;
 }
 
-.output-group {
-    justify-content: space-around;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
+.text-group {
+    width: 100%;
 }
 
 .tac-control {
    width: 30px;
    height: 30px;
+}
+
+.bord {
+    border: 10px solid black;
+}
+
+.d-none {
+    display: none;
 }
