@@ -12,10 +12,10 @@ const getjson = (url) => {
     .then((response) => response.json())
     .then((json) =>  {
         todos = json;
-        
+    
+        console.log(json)
         output.innerHTML = ''
         todos.forEach(todo => {
-            if(todo.id < 11) {
                 output.innerHTML += `
                 <div id="todon" class="person d-flex is-notdone">
                 <div class="output">
@@ -30,13 +30,12 @@ const getjson = (url) => {
                 </div>
                 `
                 number++;
-            }
-
         })        
     })
+    
 }
 
-getjson('https://jsonplaceholder.typicode.com/posts/');
+getjson('https://jsonplaceholder.typicode.com/posts?userId=1');
 
 const validateText = (id) => {
     let input = document.querySelector(id)
