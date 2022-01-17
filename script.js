@@ -83,7 +83,7 @@ form.addEventListener('submit', e => {
         })
         .then((response) => response.json())
         .then((json) => {
-            todos.push(json)
+            todos.unshift(json)
             title.value = ''
             console.log(todos)
 
