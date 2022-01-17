@@ -95,12 +95,27 @@ form.addEventListener('submit', e => {
     }   
 })
 
+const deletetodo = (id) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+    method: 'DELETE',
+    })
+    .then((res) => {
+        if(res.status !== 200) {
+            return
+        }
+        else {
+            todos.filter((todo) => {
+                return todo.id != id;
+            })
+        }
+    })
+}
+
 
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
-        todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
-        // console.log(e.target.parentNode.parentNode.id)
-        // console.log(todos)
+        deletetodo(todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id));
+        console.log(todos);
         listTodos();
     }
 })
