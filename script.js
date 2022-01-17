@@ -2,39 +2,38 @@ const form = document.querySelector('#Form')
 const title = document.querySelector('#title')
 const output = document.querySelector('#output')
 const invalid = document.querySelector('.invalid-feedback')
-const btndelete = document.querySelector('#resetbutton')
+const btndelete = document.querySelector('.btndelete')
 
 let todos = [];
-let number = 1;
 
-const getjson = (url) => {
-    fetch(url)
+const getjson = () => {
+    fetch('https://jsonplaceholder.typicode.com/todos/')
     .then((response) => response.json())
     .then((json) =>  {
         todos = json.splice(0, 10);
-    
-        output.innerHTML = ''
-        todos.forEach(todo => {
-                    output.innerHTML += `
-                    <div id="todon" class="person d-flex is-notdone">
-                    <div class="output">
-                    <input type="checkbox" id="tac" class="tac-control">
-                    <div class="text-group">
-                    <p id="output-text">${number}</p>
-                    <p id="output-text">${todo.title}</p>
-                    </div>
-                    <button type="button" id="resetbutton" class="btndelete">X</button>
-                    </div>
-                    </div>
-                    `
-                    number++;
-        }) 
-        console.log(todos)       
+        listTodos();
     })
-    
 }
 
-getjson('https://jsonplaceholder.typicode.com/todos/');
+getjson();
+
+const listTodos = () => {
+    output.innerHTML = ''
+    todos.forEach(todo => {
+                output.innerHTML += `
+                <div id="${todo.id}" class="todon person d-flex is-notdone">
+                    <div class="output">
+                    <input type="checkbox" class="tac-control">
+                    <div class="text-group">
+                        <p id="output-text">${todo.title}</p>
+                    </div>
+                        <button type="button" class="btndelete">X</button>
+                    </div>
+                </div>
+                `
+    }) 
+    
+}
 
 const validateText = (id) => {
     let input = document.querySelector(id)
@@ -84,30 +83,21 @@ form.addEventListener('submit', e => {
         })
         .then((response) => response.json())
         .then((json) => {
+            console.log(json)
             todos.unshift(json)
             title.value = ''
             console.log(todos)
-
-            let numbers = 1;
-            output.innerHTML = ''
-            todos.forEach(todo => {
-                    output.innerHTML += `
-                    <div id="todon" class="person d-flex is-notdone">
-                    <div class="output">
-                    <input type="checkbox" id="tac" class="tac-control">
-                    <div class="text-group">
-                    <p id="output-text">${numbers}</p>
-                    <p id="output-text">${todo.title}</p>
-                    </div>
-                    <button type="button" id="resetbutton" class="btndelete">X</button>
-                    </div>
-                    </div>
-                    `
-                    todo.id++;
-                    numbers++;
-                })
-            })
+            listTodos();
+        })
     }    
+})
+
+output.addEventListener('click', e => {
+    if(e.target.type == 'button') {
+        todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);        
+        // console.log(todos)
+        listTodos();
+    }
 })
 
 

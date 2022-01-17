@@ -84,7 +84,7 @@ body {
     color: rgb(255, 255, 255);
 }
 
-#todon {
+.todon {
     margin-top: 3rem;
     border-radius: 1rem;
     border: transparent;
