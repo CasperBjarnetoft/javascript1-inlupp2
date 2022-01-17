@@ -35,7 +35,7 @@ const getjson = (url) => {
     
 }
 
-getjson('https://jsonplaceholder.typicode.com/posts?userId=1');
+getjson('https://jsonplaceholder.typicode.com/todos?userId=1');
 
 const validateText = (id) => {
     let input = document.querySelector(id)
@@ -71,7 +71,7 @@ form.addEventListener('submit', e => {
 
     }
     else {
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        fetch('https://jsonplaceholder.typicode.com/todos', {
             method: 'POST',
             body: JSON.stringify({
                 title: headline.value,
