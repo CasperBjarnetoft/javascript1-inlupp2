@@ -25,9 +25,8 @@ body {
 }
 
 .btn {
-    margin-top: 1rem;
-    padding: 1.6em 4em;
-    border-radius: .5rem;
+    padding: 1.4em 3em;
+    border-radius: 0 1rem 1rem 0;
     border: 0;
     outline: none;
     text-transform: uppercase;
@@ -102,13 +101,6 @@ body {
     justify-content: space-between;
 }
 
-.is-done {
-    border: 1px solid blue;
-}
-
-.is-notdone {
-    border: 1px solid black
-}
 
 .header {
     margin-bottom: 1rem;
@@ -132,14 +124,12 @@ body {
 }
 
 .form-control {
-    padding: 1.2rem 0.4rem;
-    margin-right: 1.5rem;
+    padding: 1.3rem 0.4rem;
     width: 300px;
-    border-radius: 1rem;
+    border-radius: 1rem 0 0 1rem;
 }
 
 #output {
-    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,8 +1,6 @@
 const form = document.querySelector('#Form')
-const headline = document.querySelector('#headline')
-const about = document.querySelector('#about')
+const title = document.querySelector('#headline')
 const output = document.querySelector('#output')
-let tac = document.querySelector('#tac')
 
 let todos = [];
 let number = 1;
@@ -31,7 +29,8 @@ const getjson = (url) => {
                     `
                     number++;
                 }
-        })        
+        }) 
+        console.log(todos)       
     })
     
 }
@@ -72,10 +71,10 @@ form.addEventListener('submit', e => {
 
     }
     else {
-        fetch('https://jsonplaceholder.typicode.com/todos', {
+        fetch('https://jsonplaceholder.typicode.com/todos/', {
             method: 'POST',
             body: JSON.stringify({
-                title: headline.value,
+                title: title.value,
                 useriId: 1,
             }),
             headers: {
@@ -85,8 +84,7 @@ form.addEventListener('submit', e => {
         .then((response) => response.json())
         .then((json) => {
             todos.push(json)
-            headline.value = ''
-            about.value = ''
+            title.value = ''
             console.log(todos)
 
             let numbers = 1;
