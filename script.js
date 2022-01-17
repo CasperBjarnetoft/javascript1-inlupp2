@@ -1,5 +1,5 @@
 const form = document.querySelector('#Form')
-const title = document.querySelector('#headline')
+const title = document.querySelector('#title')
 const output = document.querySelector('#output')
 
 let todos = [];
