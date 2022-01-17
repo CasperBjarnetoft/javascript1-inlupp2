@@ -62,7 +62,7 @@ form.addEventListener('submit', e => {
     for (let i = 0; i< e.currentTarget.length; i++) {
         if (e.currentTarget[i].type === 'text') {
             errors[i] = validateText('#' + e.currentTarget[i].id)
-            console.log(i)
+            // console.log(i)
         }
     }
 
@@ -83,20 +83,33 @@ form.addEventListener('submit', e => {
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
             todos.unshift(json)
             title.value = ''
             console.log(todos)
             listTodos();
+            todos.forEach(todo => {
+                todo.id++;
+            })
         })
-    }    
+    }   
 })
+
 
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {
-        todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);        
-        // console.log(todos)
-        listTodos();
+        if(e.target.parentNode.parentNode.id < 202) {
+            e.target.parentNode.parentNode.id++;
+            todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
+            // console.log(e.target.parentNode.parentNode.id)
+            // console.log(todos)
+            listTodos();
+        }
+        else {
+            todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
+            // console.log(e.target.parentNode.parentNode.id)
+            // console.log(todos)
+            listTodos();
+        }
     }
 })
 
