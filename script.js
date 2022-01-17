@@ -9,12 +9,10 @@ const getjson = (url) => {
     fetch(url)
     .then((response) => response.json())
     .then((json) =>  {
-        todos = json;
+        todos = json.splice(0, 10);
     
-        console.log(json)
         output.innerHTML = ''
         todos.forEach(todo => {
-                if(todo.id < 11) {
                     output.innerHTML += `
                     <div id="todon" class="person d-flex is-notdone">
                     <div class="output">
@@ -28,7 +26,6 @@ const getjson = (url) => {
                     </div>
                     `
                     number++;
-                }
         }) 
         console.log(todos)       
     })
