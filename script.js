@@ -7,7 +7,7 @@ const btndelete = document.querySelector('.btndelete')
 let todos = [];
 
 const getjson = () => {
-    fetch('https://jsonplaceholder.typicode.com/todos/')
+fetch('https://jsonplaceholder.typicode.com/todos/')
     .then((response) => response.json())
     .then((json) =>  {
         todos = json.splice(0, 10);
@@ -83,33 +83,25 @@ form.addEventListener('submit', e => {
         })
         .then((response) => response.json())
         .then((json) => {
-            todos.unshift(json)
-            title.value = ''
-            console.log(todos)
-            listTodos();
             todos.forEach(todo => {
                 todo.id++;
             })
+            todos.unshift(json)
+            title.value = ''
+            // console.log(todos)
+            listTodos();
+
         })
     }   
 })
 
 
 output.addEventListener('click', e => {
-    if(e.target.type == 'button') {
-        if(e.target.parentNode.parentNode.id < 202) {
-            e.target.parentNode.parentNode.id++;
-            todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
-            // console.log(e.target.parentNode.parentNode.id)
-            // console.log(todos)
-            listTodos();
-        }
-        else {
-            todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
-            // console.log(e.target.parentNode.parentNode.id)
-            // console.log(todos)
-            listTodos();
-        }
+    if(e.target.type == 'button') {   
+        todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id);
+        // console.log(e.target.parentNode.parentNode.id)
+        // console.log(todos)
+        listTodos();
     }
 })
 
