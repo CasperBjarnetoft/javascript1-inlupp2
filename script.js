@@ -1,6 +1,8 @@
 const form = document.querySelector('#Form')
 const title = document.querySelector('#title')
 const output = document.querySelector('#output')
+const invalid = document.querySelector('.invalid-feedback')
+const btndelete = document.querySelector('#resetbutton')
 
 let todos = [];
 let number = 1;
@@ -40,12 +42,14 @@ const validateText = (id) => {
     if(input.value === '' || input.value.length < 2) {
         input.classList.remove('is-valid');
         input.classList.add('is-invalid')
+        invalid.classList.add('d-block')
         input.focus();
         return false;
     }
     else {
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');
+        invalid.classList.remove('d-block')
         return true;
     }
 }
@@ -105,7 +109,5 @@ form.addEventListener('submit', e => {
             })
     }    
 })
-
-
 
 

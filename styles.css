@@ -94,13 +94,6 @@ body {
     background-color: white;
 }
 
-.inputs {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 
 .header {
     margin-bottom: 1rem;
@@ -114,13 +107,12 @@ body {
 }
 
 .invalid-feedback {
+    width: 65%;
     display: none;
 }
 
-.input-label {
-    margin-right: 1rem;
-    font-size: 1.4rem;
-    font-weight: 700;
+.d-block {
+    display: block;
 }
 
 .form-control {
