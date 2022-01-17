@@ -16,26 +16,27 @@ const getjson = (url) => {
         console.log(json)
         output.innerHTML = ''
         todos.forEach(todo => {
-                output.innerHTML += `
-                <div id="todon" class="person d-flex is-notdone">
-                <div class="output">
-                <input type="checkbox" id="tac" class="tac-control">
-                <div class="text-group">
-                <p id="output-text">${number}</p>
-                <p id="output-text">${todo.title}</p>
-                <p id="output-text">${todo.body}</p>
-                </div>
-                <button type="button" id="resetbutton" class="btndelete">X</button>
-                </div>
-                </div>
-                `
-                number++;
+                if(todo.id < 11) {
+                    output.innerHTML += `
+                    <div id="todon" class="person d-flex is-notdone">
+                    <div class="output">
+                    <input type="checkbox" id="tac" class="tac-control">
+                    <div class="text-group">
+                    <p id="output-text">${number}</p>
+                    <p id="output-text">${todo.title}</p>
+                    </div>
+                    <button type="button" id="resetbutton" class="btndelete">X</button>
+                    </div>
+                    </div>
+                    `
+                    number++;
+                }
         })        
     })
     
 }
 
-getjson('https://jsonplaceholder.typicode.com/todos?userId=1');
+getjson('https://jsonplaceholder.typicode.com/todos/');
 
 const validateText = (id) => {
     let input = document.querySelector(id)
@@ -75,7 +76,6 @@ form.addEventListener('submit', e => {
             method: 'POST',
             body: JSON.stringify({
                 title: headline.value,
-                body: about.value,
                 useriId: 1,
             }),
             headers: {
@@ -99,7 +99,6 @@ form.addEventListener('submit', e => {
                     <div class="text-group">
                     <p id="output-text">${numbers}</p>
                     <p id="output-text">${todo.title}</p>
-                    <p id="output-text">${todo.body}</p>
                     </div>
                     <button type="button" id="resetbutton" class="btndelete">X</button>
                     </div>
