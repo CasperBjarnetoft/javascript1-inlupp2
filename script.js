@@ -109,7 +109,8 @@ const deletetodo = (id) => {
 
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
-        deletetodo(todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id));        
+        deletetodo(e.target.parentNode.parentNode.id);        
+        todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id)
         console.log(todos);
         listTodos();
     }
