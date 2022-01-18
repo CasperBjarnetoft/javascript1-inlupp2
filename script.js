@@ -102,19 +102,14 @@ const deletetodo = (id) => {
     .then((res) => {
         if(res.status !== 200) {
             return
-        }
-        else {
-            todos.filter((todo) => {
-                return todo.id != id;
-            })
-        }
+        }       
     })
 }
 
 
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
-        deletetodo(todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id));
+        deletetodo(todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id));        
         console.log(todos);
         listTodos();
     }
