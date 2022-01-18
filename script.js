@@ -3,6 +3,7 @@ const title = document.querySelector('#title')
 const output = document.querySelector('#output')
 const invalid = document.querySelector('.invalid-feedback')
 const btndelete = document.querySelector('.btndelete')
+const tac = document.querySelector('.tac-control') 
 
 let todos = [];
 
@@ -106,13 +107,15 @@ const deletetodo = (id) => {
     })
 }
 
-
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
         deletetodo(e.target.parentNode.parentNode.id);        
         todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id)
         console.log(todos);
         listTodos();
+    }
+    else if (e.target.type = 'checkbox') {
+        console.log("hej")
     }
 })
 
