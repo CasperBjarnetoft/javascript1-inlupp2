@@ -1,9 +1,7 @@
 const form = document.querySelector('#Form')
 const title = document.querySelector('#title')
-const output = document.querySelector('#output')
+const output = document.querySelector('.outputs')
 const invalid = document.querySelector('.invalid-feedback')
-const btndelete = document.querySelector('.btndelete')
-
 
 let todos = [];
 
@@ -22,12 +20,15 @@ const listTodos = () => {
     output.innerHTML = ''
     todos.forEach(todo => {
                 output.innerHTML += `
-                <div id="${todo.id}" class="todon person d-flex is-notdone">
+                <div id="${todo.id}" class="todon person d-flex">
                     <div class="output">
-                    <input type="checkbox" class="tac-control">
-                    <div class="text-group">
-                        <p id="output-text">${todo.title}</p>
-                    </div>
+                        <label id="bts" class="for-tac">
+                        <input type="checkbox" class="tac-control">
+                        <span class="checkmark"></span>
+                        </label>
+                        <div class="text-group">
+                            <p id="output-text">${todo.title}</p>
+                        </div>
                         <button type="button" class="btndelete">X</button>
                     </div>
                 </div>
@@ -107,17 +108,6 @@ const deletetodo = (id) => {
     })
 }
 
-const checkcheckbox = () => {
-    let tac = document.querySelector('.tac-control') 
-
-    if(tac.checked) {
-        console.log("hej");
-    }
-    else {
-        console.log("hejdå");
-    }
-}
-
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
         deletetodo(e.target.parentNode.parentNode.id);        
@@ -126,8 +116,19 @@ output.addEventListener('click', e => {
         listTodos();
     }
     else if (e.target.type = 'checkbox') {
-        checkcheckbox();
+        let btndelete = e.target.parentNode.parentNode.querySelector(".btndelete");
+
+        if(e.target.checked) {
+            e.target.parentNode.parentNode.parentNode.classList.add('bord');
+            btndelete.classList.add("d-block")
+            
+        }
+        else {
+            e.target.parentNode.parentNode.parentNode.classList.remove('bord')
+            btndelete.classList.remove("d-block")
+        }
     }
+
 })
 
 

@@ -62,6 +62,7 @@ body {
     padding: 0.5rem;
     text-decoration: none;
     cursor: pointer;
+    display: none;
 }
 
 .btndelete:hover,
@@ -87,7 +88,6 @@ body {
 .todon {
     margin-top: 3rem;
     border-radius: 1rem;
-    border: transparent;
     width: 80%;
     align-items: center;
     justify-content: center;
@@ -111,17 +111,13 @@ body {
     display: none;
 }
 
-.d-block {
-    display: block;
-}
-
 .form-control {
     padding: 1.3rem 0.4rem;
     width: 300px;
     border-radius: 1rem 0 0 1rem;
 }
 
-#output {
+.outputs {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,11 +141,70 @@ body {
     width: 100%;
 }
 
-.tac-control {
-   width: 30px;
-   height: 30px;
+.for-tac {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    height: 25px;
+    width: 25px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.tac-control:checked {
-    background-color: rebeccapurple;
+.for-tac input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #e0e0e0;
+}
+
+
+.container input:checked ~ .checkmark {
+    background-color: #797979;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.container .checkmark:after {
+    left: 10px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.bord {
+    border: 3px solid #797979;
+}
+
+.d-block {
+    display: block;
+}
+
+
