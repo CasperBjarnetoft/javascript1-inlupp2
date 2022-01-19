@@ -3,7 +3,7 @@ const title = document.querySelector('#title')
 const output = document.querySelector('#output')
 const invalid = document.querySelector('.invalid-feedback')
 const btndelete = document.querySelector('.btndelete')
-const tac = document.querySelector('.tac-control') 
+
 
 let todos = [];
 
@@ -107,6 +107,17 @@ const deletetodo = (id) => {
     })
 }
 
+const checkcheckbox = () => {
+    let tac = document.querySelector('.tac-control') 
+
+    if(tac.checked) {
+        console.log("hej");
+    }
+    else {
+        console.log("hejdå");
+    }
+}
+
 output.addEventListener('click', e => {
     if(e.target.type == 'button') {   
         deletetodo(e.target.parentNode.parentNode.id);        
@@ -115,7 +126,7 @@ output.addEventListener('click', e => {
         listTodos();
     }
     else if (e.target.type = 'checkbox') {
-        console.log("hej")
+        checkcheckbox();
     }
 })
 
