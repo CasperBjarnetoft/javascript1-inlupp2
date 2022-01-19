@@ -22,7 +22,7 @@ const listTodos = () => {
                 output.innerHTML += `
                 <div id="${todo.id}" class="todon person d-flex">
                     <div class="output">
-                        <label id="bts" class="for-tac">
+                        <label class="for-tac">
                         <input type="checkbox" class="tac-control">
                         <span class="checkmark"></span>
                         </label>
@@ -128,7 +128,6 @@ output.addEventListener('click', e => {
             btndelete.classList.remove("d-block")
         }
     }
-
 })
 
 
