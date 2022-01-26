@@ -64,7 +64,6 @@ form.addEventListener('submit', e => {
     for (let i = 0; i< e.currentTarget.length; i++) {
         if (e.currentTarget[i].type === 'text') {
             errors[i] = validateText('#' + e.currentTarget[i].id)
-            // console.log(i)
         }
     }
 
@@ -90,7 +89,6 @@ form.addEventListener('submit', e => {
             })
             todos.unshift(json)
             title.value = ''
-            // console.log(todos)
             listTodos();
 
         })
