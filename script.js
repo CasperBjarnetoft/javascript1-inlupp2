@@ -23,8 +23,8 @@ const listTodos = () => {
                 <div id="${todo.id}" class="todon person d-flex">
                     <div class="output">
                         <label class="for-tac">
-                        <input type="checkbox" class="tac-control">
-                        <span class="checkmark"></span>
+                            <input type="checkbox" class="tac-control">
+                            <span class="checkmark"></span>
                         </label>
                         <div class="text-group">
                             <p id="output-text">${todo.title}</p>
