@@ -20,7 +20,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/')
 // Show the array on website
 getjson();
 
-//  For that makes the HTML for every todo
+//  Makes HTML for each todo
 const listTodos = () => {
     output.innerHTML = ''
     todos.forEach(todo => {
@@ -75,7 +75,7 @@ form.addEventListener('submit', e => {
     }
 
 
-    // if statment to check what to do if the inputs are true of false
+    // if statment to check what to do if the inputs are true or false
     if(errors.includes(false)) {
 
     }
