@@ -1,3 +1,4 @@
+/* overall styling-start */
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +75,9 @@ body {
 .btndelete:active {
     background-color: #ff00009f;
 }
+/* overall styling-end */
 
+/* form styling-start */
 #Form {
     height: 15vh;
     width: 50%;
@@ -84,16 +87,6 @@ body {
     align-items: center;
     color: rgb(255, 255, 255);
 }
-
-.todon {
-    margin-top: 3rem;
-    border-radius: 1rem;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
 
 .header {
     margin-bottom: 1rem;
@@ -115,6 +108,17 @@ body {
     padding: 1.3rem 0.4rem;
     width: 300px;
     border-radius: 1rem 0 0 1rem;
+}
+/* form styling-end */
+
+/* output-styling-start */
+.todon {
+    margin-top: 3rem;
+    border-radius: 1rem;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 }
 
 .outputs {
@@ -205,5 +209,6 @@ body {
 .d-block {
     display: block;
 }
+/* output-styling-end */
 
 

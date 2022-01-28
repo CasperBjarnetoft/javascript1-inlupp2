@@ -1,10 +1,13 @@
+// Getting all values
 const form = document.querySelector('#Form')
 const title = document.querySelector('#title')
 const output = document.querySelector('.outputs')
 const invalid = document.querySelector('.invalid-feedback')
 
+// Array for todos
 let todos = [];
 
+// Function that get all values from an url
 const getjson = () => {
 fetch('https://jsonplaceholder.typicode.com/todos/')
     .then((response) => response.json())
@@ -14,8 +17,10 @@ fetch('https://jsonplaceholder.typicode.com/todos/')
     })
 }
 
+// Show the array on website
 getjson();
 
+//  For that makes the HTML for every todo
 const listTodos = () => {
     output.innerHTML = ''
     todos.forEach(todo => {
@@ -37,6 +42,7 @@ const listTodos = () => {
     
 }
 
+// Validation for inputs
 const validateText = (id) => {
     let input = document.querySelector(id)
 
@@ -55,12 +61,13 @@ const validateText = (id) => {
     }
 }
 
-
+// What is going to happen when you click the submit button in form
 form.addEventListener('submit', e => {
     e.preventDefault();
 
     const errors = [];
 
+    // Validation for inputs on submit
     for (let i = 0; i< e.currentTarget.length; i++) {
         if (e.currentTarget[i].type === 'text') {
             errors[i] = validateText('#' + e.currentTarget[i].id)
@@ -68,10 +75,12 @@ form.addEventListener('submit', e => {
     }
 
 
+    // if statment to check what to do if the inputs are true of false
     if(errors.includes(false)) {
 
     }
     else {
+        // Making a new value to the arrray and showing it on the website
         fetch('https://jsonplaceholder.typicode.com/todos/', {
             method: 'POST',
             body: JSON.stringify({
@@ -95,6 +104,7 @@ form.addEventListener('submit', e => {
     }   
 })
 
+// Function to delete a value from the database
 const deletetodo = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
     method: 'DELETE',
@@ -106,7 +116,10 @@ const deletetodo = (id) => {
     })
 }
 
+// what is going to happen when you click on button or checkbox in an output
 output.addEventListener('click', e => {
+
+    // if statment to see if the clicked item is a checkbox or button
     if(e.target.type == 'button') {   
         deletetodo(e.target.parentNode.parentNode.id);        
         todos = todos.filter(todo => todo.id != e.target.parentNode.parentNode.id)
